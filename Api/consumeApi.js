@@ -1,40 +1,40 @@
 //Usuarios API
-const urlRegistarUsu = "http://localhost:8000/Registrar";
-const urlLoginUsu = "http://localhost:8000/Login";
-const urlUsuarios = "http://localhost:8000/api/usuarios/admin"
-const urlActualizarUsuarios = "http://localhost:8000/api/usuarios/Actualizar";
-const  urlEliminarUsuarios = "http://localhost:8000/api/usuarios/EliminarUsuario/:idusuarios";
+const urlRegistarUsu = "https://bdhb-storetechnology-ss-d191.onrender.com/Registrar";
+const urlLoginUsu = "https://bdhb-storetechnology-ss-d191.onrender.com/Login";
+const urlUsuarios = "https://bdhb-storetechnology-ss-d191.onrender.com/api/usuarios/admin"
+const urlActualizarUsuarios = "https://bdhb-storetechnology-ss-d191.onrender.com/api/usuarios/Actualizar";
+const  urlEliminarUsuarios = "https://bdhb-storetechnology-ss-d191.onrender.com/api/usuarios/EliminarUsuario/:idusuarios";
 
 //Productos API
-const urlProductos = "http://localhost:8000/api/tecnologia"
-const urlRegistrarProductos = "http://localhost:8000/api/tecnologia/RegistrarProducto"
-const urlActualizarProductos = "http://localhost:8000/api/tecnologia/ActualizarProducto"
-const urlEliminarProductos = "http://localhost:8000/api/tecnologia/EliminarProducto/:idProducto"
+const urlProductos = "https://bdhb-storetechnology-ss-d191.onrender.com/api/tecnologia"
+const urlRegistrarProductos = "https://bdhb-storetechnology-ss-d191.onrender.com/api/tecnologia/RegistrarProducto"
+const urlActualizarProductos = "https://bdhb-storetechnology-ss-d191.onrender.com/api/tecnologia/ActualizarProducto"
+const urlEliminarProductos = "https://bdhb-storetechnology-ss-d191.onrender.com/api/tecnologia/EliminarProducto/:idProducto"
 
 //Pedidos API
 
-const urlPedidos = "http://localhost:8000/api/pedidos";
-const urlPedidosUsuario = "http://localhost:8000/api/pedidos/usuario/:idUsuario";
-const urlPedidoDetalle = "http://localhost:8000/api/pedidos/:idPedido/detalle";
-const urlPedidoEstado = "http://localhost:8000/api/pedidos/:idPedido/estado";
-const urlPedidosTodo = "http://localhost:8000/api/pedidos/mostrarPedidos";
+const urlPedidos = "https://bdhb-storetechnology-ss-d191.onrender.com/api/pedidos";
+const urlPedidosUsuario = "https://bdhb-storetechnology-ss-d191.onrender.com/api/pedidos/usuario/:idUsuario";
+const urlPedidoDetalle = "https://bdhb-storetechnology-ss-d191.onrender.com/api/pedidos/:idPedido/detalle";
+const urlPedidoEstado = "https://bdhb-storetechnology-ss-d191.onrender.com/api/pedidos/:idPedido/estado";
+const urlPedidosTodo = "https://bdhb-storetechnology-ss-d191.onrender.com/api/pedidos/mostrarPedidos";
 
 
 //Pagos API
-const urlPagos = "http://localhost:8000/api/pagos";
-const urlPagosUsuario = "http://localhost:8000/api/pagos/usuario/:idUsuario";
-const urlFormasPago = "http://localhost:8000/api/pagos/formas-pago";
-const urlPagoEstado = "http://localhost:8000/api/pagos/:idPago/estado";
-const urlPagosTodo = "http://localhost:8000/api/pagos/MostrarP";
-const urlPagosCount = "http://localhost:8000/api/pagos/count";
+const urlPagos = "https://bdhb-storetechnology-ss-d191.onrender.com/api/pagos";
+const urlPagosUsuario = "https://bdhb-storetechnology-ss-d191.onrender.com/api/pagos/usuario/:idUsuario";
+const urlFormasPago = "https://bdhb-storetechnology-ss-d191.onrender.com/api/pagos/formas-pago";
+const urlPagoEstado = "https://bdhb-storetechnology-ss-d191.onrender.com/api/pagos/:idPago/estado";
+const urlPagosTodo = "https://bdhb-storetechnology-ss-d191.onrender.com/api/pagos/MostrarP";
+const urlPagosCount = "https://bdhb-storetechnology-ss-d191.onrender.com/api/pagos/count";
 
 
 //Ventas API 
-const urlVentas = "http://localhost:8000/api/ventas";
-const urlVentasRangoFechas = "http://localhost:8000/api/ventas/rango-fechas";
-const urlVentasStats = "http://localhost:8000/api/ventas/estadisticas";
-const urlVentasUsuario = "http://localhost:8000/api/ventas/usuario/:idUsuario";
-const urlVentaEstado = "http://localhost:8000/api/ventas/:idVenta/estado";
+const urlVentas = "https://bdhb-storetechnology-ss-d191.onrender.com/api/ventas";
+const urlVentasRangoFechas = "https://bdhb-storetechnology-ss-d191.onrender.com/api/ventas/rango-fechas";
+const urlVentasStats = "https://bdhb-storetechnology-ss-d191.onrender.com/api/ventas/estadisticas";
+const urlVentasUsuario = "https://bdhb-storetechnology-ss-d191.onrender.com/api/ventas/usuario/:idUsuario";
+const urlVentaEstado = "https://bdhb-storetechnology-ss-d191.onrender.com/api/ventas/:idVenta/estado";
 
 //Usuarios CRUD
 
