@@ -34,7 +34,7 @@ async function obtenerProductos() {
                 <td>${nombreProducto}</td>
                 <td>
                     <div class="rollo-imagen-container">
-                        <img src="img/${imagen}" width="40px" class="rollo-imagen">
+                        <img src="/img/${imagen}" width="40px" class="rollo-imagen">
                     </div>
                 </td>
                 <td>$${Number(valor).toLocaleString('es-CO')}</td>
