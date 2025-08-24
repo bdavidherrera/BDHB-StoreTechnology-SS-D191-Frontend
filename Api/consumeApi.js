@@ -1,32 +1,40 @@
 //Usuarios API
-const urlRegistarUsu = "https://bdhb-storetechnology-ss-d191.onrender.com/Registrar";
-const urlLoginUsu = "https://bdhb-storetechnology-ss-d191.onrender.com/Login";
-const urlUsuarios = "https://bdhb-storetechnology-ss-d191.onrender.com/api/usuarios/admin"
-const urlActualizarUsuarios = "https://bdhb-storetechnology-ss-d191.onrender.com/api/usuarios/Actualizar";
-const  urlEliminarUsuarios = "https://bdhb-storetechnology-ss-d191.onrender.com/api/usuarios/EliminarUsuario/:idusuarios";
+const urlRegistarUsu = "http://localhost:8000/Registrar";
+const urlLoginUsu = "http://localhost:8000/Login";
+const urlUsuarios = "http://localhost:8000/api/usuarios/admin"
+const urlActualizarUsuarios = "http://localhost:8000/api/usuarios/Actualizar";
+const  urlEliminarUsuarios = "http://localhost:8000/api/usuarios/EliminarUsuario/:idusuarios";
 
 //Productos API
-const urlProductos = "https://bdhb-storetechnology-ss-d191.onrender.com/api/tecnologia"
-const urlRegistrarProductos = "https://bdhb-storetechnology-ss-d191.onrender.com/api/tecnologia/RegistrarProducto"
-const urlActualizarProductos = "https://bdhb-storetechnology-ss-d191.onrender.com/api/tecnologia/ActualizarProducto"
-const urlEliminarProductos = "https://bdhb-storetechnology-ss-d191.onrender.com/api/tecnologia/EliminarProducto/:idProducto"
+const urlProductos = "http://localhost:8000/api/tecnologia"
+const urlRegistrarProductos = "http://localhost:8000/api/tecnologia/RegistrarProducto"
+const urlActualizarProductos = "http://localhost:8000/api/tecnologia/ActualizarProducto"
+const urlEliminarProductos = "http://localhost:8000/api/tecnologia/EliminarProducto/:idProducto"
 
 //Pedidos API
 
-const urlPedidos = "https://bdhb-storetechnology-ss-d191.onrender.com/api/pedidos";
-const urlPedidosUsuario = "https://bdhb-storetechnology-ss-d191.onrender.com/api/pedidos/usuario/:idUsuario";
-const urlPedidoDetalle = "https://bdhb-storetechnology-ss-d191.onrender.com/api/pedidos/:idPedido/detalle";
-const urlPedidoEstado = "https://bdhb-storetechnology-ss-d191.onrender.com/api/pedidos/:idPedido/estado";
-const urlPedidosTodo = "https://bdhb-storetechnology-ss-d191.onrender.com/api/pedidos/mostrarPedidos";
+const urlPedidos = "http://localhost:8000/api/pedidos";
+const urlPedidosUsuario = "http://localhost:8000/api/pedidos/usuario/:idUsuario";
+const urlPedidoDetalle = "http://localhost:8000/api/pedidos/:idPedido/detalle";
+const urlPedidoEstado = "http://localhost:8000/api/pedidos/:idPedido/estado";
+const urlPedidosTodo = "http://localhost:8000/api/pedidos/mostrarPedidos";
 
 
 //Pagos API
-const urlPagos = "https://bdhb-storetechnology-ss-d191.onrender.com/api/pagos";
-const urlPagosUsuario = "https://bdhb-storetechnology-ss-d191.onrender.com/api/pagos/usuario/:idUsuario";
-const urlFormasPago = "https://bdhb-storetechnology-ss-d191.onrender.com/api/pagos/formas-pago";
-const urlPagoEstado = "https://bdhb-storetechnology-ss-d191.onrender.com/api/pagos/:idPago/estado";
-const urlPagosTodo = "https://bdhb-storetechnology-ss-d191.onrender.com/api/pagos/MostrarP";
-const urlPagosCount = "https://bdhb-storetechnology-ss-d191.onrender.com/api/pagos/count";
+const urlPagos = "http://localhost:8000/api/pagos";
+const urlPagosUsuario = "http://localhost:8000/api/pagos/usuario/:idUsuario";
+const urlFormasPago = "http://localhost:8000/api/pagos/formas-pago";
+const urlPagoEstado = "http://localhost:8000/api/pagos/:idPago/estado";
+const urlPagosTodo = "http://localhost:8000/api/pagos/MostrarP";
+const urlPagosCount = "http://localhost:8000/api/pagos/count";
+
+
+//Ventas API 
+const urlVentas = "http://localhost:8000/api/ventas";
+const urlVentasRangoFechas = "http://localhost:8000/api/ventas/rango-fechas";
+const urlVentasStats = "http://localhost:8000/api/ventas/estadisticas";
+const urlVentasUsuario = "http://localhost:8000/api/ventas/usuario/:idUsuario";
+const urlVentaEstado = "http://localhost:8000/api/ventas/:idVenta/estado";
 
 //Usuarios CRUD
 
@@ -388,3 +396,123 @@ export async function getHistorialCompras() {
     }
 }
 
+// Crear nueva venta
+export const crearVenta = async (datosVenta) => {
+    try {
+        const response = await fetch(`${urlVentas}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(datosVenta)
+        });
+        
+        const resultado = await response.json();
+        return resultado;
+        
+    } catch (error) {
+        console.error("Error al crear la venta:", error);
+        throw error;
+    }
+}
+
+// Obtener todas las ventas
+export const obtainVentas = async () => {
+    try {
+        const resultado = await fetch(urlVentas);
+        if (!resultado.ok) {
+            throw new Error(`Error HTTP: ${resultado.status}`);
+        }
+        const ventas = await resultado.json();
+        return ventas;
+    } catch (error) {
+        console.error("Error al obtener las ventas:", error);
+        throw error;
+    }
+}
+
+// Obtener ventas por rango de fechas
+export const obtainVentasPorFecha = async (fechaInicio, fechaFin) => {
+    try {
+        const url = `${urlVentasRangoFechas}?fecha_inicio=${fechaInicio}&fecha_fin=${fechaFin}`;
+        const response = await fetch(url);
+        
+        if (!response.ok) {
+            throw new Error(`Error HTTP: ${response.status}`);
+        }
+        
+        const resultado = await response.json();
+        return resultado;
+    } catch (error) {
+        console.error("Error al obtener ventas por fecha:", error);
+        throw error;
+    }
+}
+
+// Obtener estadísticas de ventas
+export const obtainVentasStats = async () => {
+    try {
+        const response = await fetch(urlVentasStats);
+        
+        if (!response.ok) {
+            throw new Error(`Error HTTP: ${response.status}`);
+        }
+        
+        const stats = await response.json();
+        return stats;
+    } catch (error) {
+        console.error("Error al obtener estadísticas de ventas:", error);
+        throw error;
+    }
+}
+
+// Obtener ventas por usuario
+export const obtenerVentasPorUsuario = async (idUsuario) => {
+    try {
+        const url = urlVentasUsuario.replace(':idUsuario', idUsuario);
+        const resultado = await fetch(url);
+        
+        if (!resultado.ok) {
+            throw new Error(`Error HTTP: ${resultado.status}`);
+        }
+        
+        const ventas = await resultado.json();
+        return ventas;
+    } catch (error) {
+        console.error("Error al obtener las ventas del usuario:", error);
+        throw error;
+    }
+}
+
+// Actualizar estado de una venta
+export const actualizarEstadoVenta = async (idVenta, estado_venta) => {
+    try {
+        const url = urlVentaEstado.replace(':idVenta', idVenta);
+        const response = await fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ estado_venta })
+        });
+        
+        if (!response.ok) {
+            throw new Error(`Error HTTP: ${response.status}`);
+        }
+         if (response.ok) {
+            // Refrescar la página después de 1 segundo
+            setTimeout(() => {
+                window.location.reload();
+            }, 1000);
+        } else {
+            console.error("❌ Error en la actualización:", resultado);
+        }
+        
+        const resultado = await response.json();
+        return resultado;
+        
+    } catch (error) {
+        console.error("Error al actualizar el estado de la venta:", error);
+        throw error;
+    }
+}
