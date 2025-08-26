@@ -29,12 +29,10 @@ document.addEventListener("DOMContentLoaded", () => {
                  window.location.href = "login.html"; 
                 formulario.reset();
             } else {
-                alert("El usuario no se pudo registrar. Intenta de nuevo");
-                console.log("El resultado no fue válido:", resultado);
+               
             }
         } catch (error) {
-            console.error("Error en el registro:", error);
-            alert("Hubo un error al registrar el usuario. Datos duplicados revisar tus datos");
+           
         }
     });
     }
@@ -50,7 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {             
             const resultado = await loginUsuario(datosLogin);              
-            console.log("Resultado completo del login:", resultado);
             
             let usuario;
             
@@ -61,7 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             
             if (!usuario) {
-                alert("No se encontró información del usuario.");
                 return;
             }
             
