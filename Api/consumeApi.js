@@ -378,7 +378,7 @@ export async function getHistorialCompras() {
             return { success: false, message: "No autorizado: debes ser cliente" };
         }
 
-        const response = await fetch(`http://localhost:8000/historial/${idUsuario}`, {
+        const response = await fetch(`https://bdhb-storetechnology-ss-d191.onrender.com/historial/${idUsuario}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
